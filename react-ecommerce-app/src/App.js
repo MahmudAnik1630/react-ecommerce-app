@@ -1,10 +1,17 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home/Home';
 
-import './App.css';
+
+
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-red-200'> hello</h1>
+    <Navbar />  
+     <Outlet />
+       
     </div>
   );
 }
