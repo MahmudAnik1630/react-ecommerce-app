@@ -62,6 +62,7 @@ const Navbar = () => {
           <div className="absolute top-full left-0 w-full shadow-lg md:hidden z-50 bg-black/70 backdrop-blur-md text-white">
             <NavItemList onClick={toggleMenu} textColor="text-white" />
           </div>
+          
         )}
       </nav>
     </header>
