@@ -8,24 +8,19 @@ function Products({ Headline }) {
 
   const productsPerPage = 4;
 
-  // Unique categories from product data
+
   const categories = ["All", ...new Set(ProDuct.map((item) => item.category))];
 
-  // Filter products by category
+  
   const filteredProducts =
-    selectedCategory === "All"
-      ? ProDuct
-      : ProDuct.filter((item) => item.category === selectedCategory);
+    selectedCategory === "All" ? ProDuct : ProDuct.filter((item) => item.category === selectedCategory);
 
-  // Pagination Logic
+  // Pagination
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
-  const currentProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + productsPerPage
-  );
+  const currentProducts = filteredProducts.slice(startIndex,startIndex + productsPerPage);
 
-  // Handle category change
+  // category change
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1); // reset to first page when category changes
@@ -44,37 +39,28 @@ function Products({ Headline }) {
         {/* Category Buttons */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
           {categories.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleCategoryChange(item)}
+            <button key={index} onClick={() => handleCategoryChange(item)}
               className={`px-4 sm:px-6 py-2 rounded-full shadow-md font-medium border transition duration-300 ${
                 selectedCategory === item
                   ? "bg-yellow-500 text-white border-yellow-500"
                   : "bg-white text-gray-700 border-gray-200 hover:bg-yellow-500 hover:text-white"
-              }`}
-            >
-              {item}
-            </button>
+              }`} > {item} </button>
           ))}
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {currentProducts.map((item) => (
             <div 
-              key={item.id} 
-              className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 flex flex-col"
-            >
+              key={item.id}  className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 flex flex-col"  >
               <img
-                src={item.imageUrl}
-                alt={item.name}
-                className="w-full h-40 sm:h-48 md:h-52 object-cover rounded-md mb-4"
+                src={item.imageUrl}  alt={item.name} className="w-full h-40 sm:h-48 md:h-52 object-cover rounded-md mb-4"
               />
               
               <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
               <p className="text-gray-600 mb-3">${item.price}</p>
 
-              {/* Add to Cart Button */}
+              {/*cart Button */}
               <button 
                 className="mt-auto flex items-center justify-center gap-2 px-4 py-2 bg-yellow-500 text-white font-medium rounded-full shadow-md hover:bg-yellow-600 transition duration-300"
               >
@@ -85,21 +71,20 @@ function Products({ Headline }) {
           ))}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-2 mt-10 flex-wrap">
             
             {/* Previous Button */}
             <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}
               className={`px-4 py-2 rounded-md font-medium shadow ${
                 currentPage === 1
                   ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                   : "bg-yellow-500 text-white hover:bg-yellow-600"
               }`}
             >
-              Previous
+              Prev
             </button>
 
             {/* Page Numbers */}
@@ -111,10 +96,7 @@ function Products({ Headline }) {
                   currentPage === index + 1
                     ? "bg-yellow-500 text-white"
                     : "bg-white text-gray-700 hover:bg-yellow-500 hover:text-white"
-                }`}
-              >
-                {index + 1}
-              </button>
+                }`} > {index + 1} </button>
             ))}
 
             {/* Next Button */}
@@ -128,9 +110,7 @@ function Products({ Headline }) {
                   ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                   : "bg-yellow-500 text-white hover:bg-yellow-600"
               }`}
-            >
-              Next
-            </button>
+            > Next </button>
           </div>
         )}
       </div>
