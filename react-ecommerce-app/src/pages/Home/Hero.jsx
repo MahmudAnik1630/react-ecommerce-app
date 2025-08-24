@@ -21,11 +21,11 @@ const Hero = () => {
   {/* Hero content */}
   <div className="relative text-center px-2 -mt-[150px] z-10">
     <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Our Store</h1>
-    <p className="text-lg md:text-2xl mb-6">Discover the best products at unbeatable prices</p>
+    <p className="text-lg text-yellow-600 md:text-2xl mb-6">Discover the best products at unbeatable prices</p>
     
     <div className="relative w-full md:w-1/2 inline-block mx-auto">
      
-      <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg cursor-pointer">
+      <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-yellow-600 text-lg cursor-pointer">
         <FaSearch />
       </div>
 

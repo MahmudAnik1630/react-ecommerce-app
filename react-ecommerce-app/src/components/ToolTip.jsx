@@ -17,6 +17,7 @@ function ToolTip({ position = "bottom-left", colors = ["#FF5733", "#33FF57", "#3
         ))}
       </div>
     </button>
+   
   );
 }
 
