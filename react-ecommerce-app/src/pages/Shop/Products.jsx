@@ -12,8 +12,7 @@ function Products({ Headline }) {
   const categories = ["All", ...new Set(ProDuct.map((item) => item.category))];
 
   
-  const filteredProducts =
-    selectedCategory === "All" ? ProDuct : ProDuct.filter((item) => item.category === selectedCategory);
+  const filteredProducts = selectedCategory === "All" ? ProDuct : ProDuct.filter((item) => item.category === selectedCategory);
 
   // Pagination
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -23,7 +22,7 @@ function Products({ Headline }) {
   // category change
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // reset to first page when category changes
+    setCurrentPage(1); 
   };
 
   return (
