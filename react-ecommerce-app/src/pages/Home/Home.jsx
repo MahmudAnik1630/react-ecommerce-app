@@ -3,6 +3,7 @@ import Hero from './Hero';
 import LearnBtn from '../../components/LearnBtn';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import Products from '../Shop/Products';
+import Experience from '../../components/Experience';
 
 
 const Home = () => {
@@ -52,6 +53,7 @@ const Home = () => {
       </section>
 
       <Products Headline='Best Selling Products' />
+      <Experience />
     </>
   );
 };
